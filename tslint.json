@@ -1,0 +1,17 @@
+{
+	"class-name": true,
+	"comment-format": [true, "check-space", "check-uppercase"],
+	"interface-name": [true, "always-prefix"],
+	"jsdoc-format": true,
+	"new-parens": true,
+	"quotemark": [true, "double", "avoid-escape"],
+	"semicolon": [true, "always"],
+	"whitespace": [true, "check-branch", "check-decl", "check-operator", "check-module", "check-seperator", "check-type", "check-typecast"],
+	"indent": [true, "tabs"],
+	"no-require-imports": true,
+	"trailing-comma": [true, { "multiline": "never", "singleline": "never" }],
+	"no-unreachable": true,
+	"triple-equals": [true, "allow-undefined-check", "allow-null-check"],
+	"use-isnan": true,
+	"member-access": [true, "check-accessor", "check-constructor"]
+}
