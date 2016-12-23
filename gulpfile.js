@@ -25,7 +25,7 @@ gulp.task("angular.compile", function () {
 		sourceType: "ts"
 	};
 
-	return gulp.src(pathSource + "/**/*.ts", { base: "./" + pathSource + "/" })
+	return tsProject.src()
 		.pipe(plumber({ errorHandler: handleError }))
 		.pipe(embedTemplates(options))
 		.pipe(tsProject())
@@ -66,3 +66,5 @@ gulp.task("scss.compile", function () {
 gulp.task("scss.watch", function () {
 	return watch("./" + pathStyles + "/**/*.scss", { read: false }, function () { gulp.start("scss.compile"); });
 });
+
+gulp.task("watch", ["angular.watch", "scss.watch"]);

@@ -9,5 +9,15 @@
 		"lib": ["es2015", "dom"],
 		"noImplicitAny": true,
 		"suppressImplicitAnyIndexErrors": true
-	}
+	},
+
+	"compileOnSave": false,
+
+	"exclude": [
+		"aot",
+		"build",
+		"dist",
+		"node_modules",
+		"app/main.aot.ts"
+	]
 }

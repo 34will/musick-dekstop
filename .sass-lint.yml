@@ -1,16 +1,16 @@
 options:
   merge-default-rules: false
   formatter: html
-  output-file: 'linters/sass-lint.html'
+  output-file: "linters/sass-lint.html"
   max-warnings: 50
 
 files:
-  include: 'styles/**/*.s+(a|c)ss'
+  include: "styles/**/*.s+(a|c)ss"
 
 rules:
     border-zero:
         - 2
-        - convention: 'none'
+        - convention: "none"
     class-name-format:
         - 2
         - allow-leading-underscore: false
@@ -28,7 +28,7 @@ rules:
         - allow-leading-underscore: false
     hex-length:
         - 2
-        - style: 'long'
+        - style: "long"
     id-name-format:
         - 2
         - allow-leading-underscore: false
@@ -41,8 +41,8 @@ rules:
     mixins-before-declarations:
         - 2
         - exclude:
-            - 'breakpoint'
-            - 'mq'
+            - "breakpoint"
+            - "mq"
     mixin-name-format:
         - 2
         - allow-leading-underscore: false
@@ -68,19 +68,19 @@ rules:
     property-sort-order:
         - 2
         - order:
-            - 'content'
-            - 'position'
-            - 'top'
-            - 'left'
-            - 'right'
-            - 'bottom'
-            - 'display'
-            - 'margin'
-            - 'padding'
+            - "content"
+            - "position"
+            - "top"
+            - "left"
+            - "right"
+            - "bottom"
+            - "display"
+            - "margin"
+            - "padding"
         - ignore-custom-properties: true
     quotes:
         - 2
-        - style: 'double'
+        - style: "double"
     shorthand-values: 2
     single-line-per-selector: 0
     space-after-bang: 1
