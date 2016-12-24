@@ -1,0 +1,23 @@
+{
+	"tagname-lowercase": true,
+	"attr-lowercase": ["*ngIf", "[ngIf]", "*ngFor", "[ngFor]", "*ngSwitch", "*ngCase"],
+	"attr-value-double-quotes": true,
+	"attr-value-not-empty": false,
+	"attr-no-duplication": true,
+	"doctype-first": true,
+	"tag-pair": true,
+	"tag-self-close": true,
+	"spec-char-escape": true,
+	"id-unique": true,
+	"src-not-empty": true,
+	"title-require": true,
+	"head-script-disabled": false,
+	"id-class-value": "dash",
+	"style-disabled": false,
+	"inline-style-disabled": true,
+	"inline-script-disabled": true,
+	"space-tab-mixed-disabled": "tab",
+	"id-class-ad-disabled": true,
+	"href-abs-or-rel": false,
+	"attr-unsafe-chars": true
+}
