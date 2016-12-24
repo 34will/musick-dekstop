@@ -1,0 +1,112 @@
+@import "mixins";
+
+$blur: 100px;
+$artwork-size: 200px;
+$info-padding: 15px;
+$runner-width: 5px;
+
+musick {
+	> .loading {
+		@include centerer(absolute);
+
+		font-size: 750%;
+		color    : #cccccc;
+	}
+
+	> div {
+		clear: both;
+
+		> .album-art {
+			position: relative;
+			z-index : 10;
+			width   : $artwork-size;
+			height  : $artwork-size;
+			float   : left;
+		}
+
+		> div {
+			position: relative;
+			width   : calc(100% - #{$artwork-size});
+			height  : $artwork-size;
+			float   : right;
+			overflow: hidden;
+
+			> .album-art-blur {
+				position           : absolute;
+				top                : -2 * $blur;
+				left               : -2 * $blur;
+				z-index            : -1;
+				width              : calc(100% + #{4 * $blur});
+				height             : calc(100% + #{4 * $blur});
+				background-repeat  : no-repeat;
+				background-position: 0;
+				background-size    : cover;
+				filter: blur($blur) saturate(115%);
+			}
+
+			> .track-info {
+				box-sizing: border-box;
+				position  : relative;
+				width     : 50%;
+				height    : 100%;
+				padding   : $info-padding;
+				color     : #E2B037;
+
+				> span {
+					display    : block;
+					text-shadow: 2px 2px 10px #111111;
+
+					&.track {
+						font-family: "Helvetica Bold";
+						font-size  : 200%;
+					}
+
+					&.album,
+					&.artist {
+						font-family: "Helvetica";
+						font-size  : 150%;
+					}
+				}
+
+				> .track-duration {
+					position        : absolute;
+					bottom          : 2 * $info-padding;
+					left            : $info-padding;
+					right           : $info-padding;
+					height          : 5px;
+					background-color: #E2B037;
+					border-left     : $runner-width / 2 solid #E2B037;
+					border-right    : $runner-width / 2 solid #E2B037;
+
+					&::after,
+					&::before {
+						position   : absolute;
+						top        : $info-padding / 2;
+						font-family: "Helvetica";
+						font-size  : 75%;
+						text-shadow: 2px 2px 10px #111111;
+					}
+
+					&::before {
+						content: attr(left-time);
+						left   : -($runner-width / 2);
+					}
+
+					&::after {
+						content: attr(right-time);
+						right  : -($runner-width / 2);
+					}
+
+					> .runner {
+						position        : absolute;
+						bottom          : 0;
+						width           : $runner-width;
+						height          : 15px;
+						margin-left     : -($runner-width / 2);
+						background-color: darken(#E2B037, 50%);
+					}
+				}
+			}
+		}
+	}
+}

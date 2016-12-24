@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<div *ngIf="CurrentTrack">
+	<img class="album-art" [src]="CurrentTrack.albumArtURI" />
+	<div>
+		<div class="album-art-blur" [style.background-image]="'url(' + CurrentTrack.albumArtURI + ')'">
+		</div>
+		<div class="track-info">
+			<span class="track">
+				<template [ngIf]="CurrentTrack.name">
+					{{CurrentTrack.name}}
+				</template>
+				<template [ngIf]="!CurrentTrack.name">
+					Unknown Name
+				</template>
+			</span>
+			<span class="artist">
+				<template [ngIf]="CurrentTrack.artist">
+					{{CurrentTrack.artist}}
+				</template>
+				<template [ngIf]="!CurrentTrack.artist">
+					Unknown Artist
+				</template>
+			</span>
+			<span *ngIf="CurrentTrack.album" class="album">{{CurrentTrack.album}} <span *ngIf="CurrentTrack.year" class="year">({{CurrentTrack.year}})</span></span>
+			<div class="track-duration" left-time="0:00" [attr.right-time]="Duration">
+				<div class="runner"></div>
+			</div>
+		</div>
+	</div>
+</div>
