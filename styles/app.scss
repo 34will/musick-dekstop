@@ -64,7 +64,61 @@ musick {
 					&.album,
 					&.artist {
 						font-family: "Helvetica";
-						font-size  : 150%;
+						font-size  : 125%;
+					}
+				}
+
+				> .controls {
+					height     : 55px;
+					line-height: 55px;
+
+					> button {
+						padding         : initial;
+						font-size       : 150%;
+						color           : initial;
+						vertical-align  : middle;
+						align-items     : initial;
+						text-align      : initial;
+						background-color: initial;
+						border-width    : initial;
+						border-style    : none;
+						border-color    : initial;
+						outline         : none;
+
+						&:active {
+							transform: translate(1px, 1px);
+
+							> i {
+								color: darken(#E2B037, 10%);
+							}
+						}
+
+						&.pause,
+						&.play {
+							margin   : 0 10px;
+							font-size: 200%;
+						}
+
+						&.random,
+						&.repeat {
+							float      : right;
+							margin-left: 15px;
+							font-size  : 150%;
+						}
+
+						&.repeat {
+							line-height: 57.5px;
+						}
+
+						&.random {
+							line-height: 58px;
+						}
+
+						> i {
+							color      : #E2B037;
+							text-shadow: 2px 2px 10px #111111;
+							cursor     : pointer;
+						}
 					}
 				}
 
@@ -77,6 +131,7 @@ musick {
 					background-color: #E2B037;
 					border-left     : $runner-width / 2 solid #E2B037;
 					border-right    : $runner-width / 2 solid #E2B037;
+					box-shadow      : 2px 2px 15px #111111;
 
 					&::after,
 					&::before {

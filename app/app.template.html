@@ -22,6 +22,15 @@
 				</template>
 			</span>
 			<span *ngIf="CurrentTrack.album" class="album">{{CurrentTrack.album}} <span *ngIf="CurrentTrack.year" class="year">({{CurrentTrack.year}})</span></span>
+			<div class="controls">
+				<button><i class="fa fa-step-backward"></i></button>
+				<button><i class="fa fa-backward"></i></button>
+				<button class="play"><i class="fa fa-play"></i></button>
+				<button><i class="fa fa-forward"></i></button>
+				<button><i class="fa fa-step-forward"></i></button>
+				<button class="random"><i class="fa fa-random"></i></button>
+				<button class="repeat"><i class="fa fa-repeat"></i></button>
+			</div>
 			<div class="track-duration" left-time="0:00" [attr.right-time]="Duration">
 				<div class="runner"></div>
 			</div>
