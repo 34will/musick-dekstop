@@ -1,44 +1,44 @@
 <!DOCTYPE html>
-<div *ngIf="CurrentTrack">
-	<img class="album-art" [src]="CurrentTrack.albumArtURI" />
+<div *ngIf="Service.CurrentTrack">
+	<img class="album-art" [src]="Service.CurrentTrack.albumArtURI" />
 	<div>
-		<div class="album-art-blur" [style.background-image]="'url(' + CurrentTrack.albumArtURI + ')'">
+		<div class="album-art-blur" [style.background-image]="'url(' + Service.CurrentTrack.albumArtURI + ')'">
 		</div>
 		<div class="track-info">
 			<span class="track">
-				<template [ngIf]="CurrentTrack.name">
-					{{CurrentTrack.name}}
+				<template [ngIf]="Service.CurrentTrack.name">
+					{{Service.CurrentTrack.name}}
 				</template>
-				<template [ngIf]="!CurrentTrack.name">
+				<template [ngIf]="!Service.CurrentTrack.name">
 					Unknown Name
 				</template>
 			</span>
 			<span class="artist">
-				<template [ngIf]="CurrentTrack.artist">
-					{{CurrentTrack.artist}}
+				<template [ngIf]="Service.CurrentTrack.artist">
+					{{Service.CurrentTrack.artist}}
 				</template>
-				<template [ngIf]="!CurrentTrack.artist">
+				<template [ngIf]="!Service.CurrentTrack.artist">
 					Unknown Artist
 				</template>
 			</span>
-			<span *ngIf="CurrentTrack.album" class="album">{{CurrentTrack.album}} <span *ngIf="CurrentTrack.year" class="year">({{CurrentTrack.year}})</span></span>
+			<span *ngIf="Service.CurrentTrack.album" class="album">{{Service.CurrentTrack.album}} <span *ngIf="Service.CurrentTrack.year" class="year">({{Service.CurrentTrack.year}})</span></span>
 			<div class="controls">
 				<button><i class="fa fa-step-backward"></i></button>
 				<button><i class="fa fa-backward"></i></button>
-				<button class="play"><i class="fa" [class.fa-play]="!Playing" [class.fa-pause]="Playing" (click)="TogglePlay()"></i></button>
+				<button class="play"><i class="fa" [class.fa-play]="!Service.Playing" [class.fa-pause]="Service.Playing" (click)="Service.TogglePlay()"></i></button>
 				<button><i class="fa fa-forward"></i></button>
 				<button><i class="fa fa-step-forward"></i></button>
-				<button class="random" [class.disabled]="Shuffle" (click)="ToggleShuffle()"><i class="fa fa-random"></i></button>
-				<button class="repeat" [class.non-single]="Repeat != 1" [class.disabled]="Repeat == 0" (click)="CycleRepeat()">
-					<span *ngIf="Repeat == 1" class="fa-stack">
+				<button class="random" [class.disabled]="!Service.Shuffle" (click)="Service.ToggleShuffle()"><i class="fa fa-random"></i></button>
+				<button class="repeat" [class.non-single]="Service.Repeat != 1" [class.disabled]="Service.Repeat == 0" (click)="Service.CycleRepeat()">
+					<span *ngIf="Service.Repeat == 1" class="fa-stack">
 						<i class="fa fa-repeat fa-stack-1x"></i>
 						<i class="fa fa-minus-circle fa-rotate-270 fa-stack-1x"></i>
 					</span>
-					<i *ngIf="Repeat != 1" class="fa fa-repeat"></i>
+					<i *ngIf="Service.Repeat != 1" class="fa fa-repeat"></i>
 				</button>
 			</div>
-			<div class="track-duration" [attr.left-time]="TimeSpanToString(CurrentDuration)" [attr.right-time]="TimeSpanToString(CurrentDifference)">
-				<div class="runner" [style.padding-left.%]="(CurrentDuration.milliseconds / CurrentTrack.duration.milliseconds) * 100.0"></div>
+			<div class="track-duration" [attr.left-time]="TimeSpanToString(Service.CurrentDuration)" [attr.right-time]="TimeSpanToString(CurrentDifference)">
+				<div class="runner" [style.padding-left.%]="(Service.CurrentDuration.milliseconds / Service.CurrentTrack.duration.milliseconds) * 100.0"></div>
 			</div>
 		</div>
 	</div>

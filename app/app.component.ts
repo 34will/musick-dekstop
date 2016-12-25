@@ -22,41 +22,13 @@ export class AppComponent {
 		return duration ? (duration.direction * duration.time.minute) + ":" + (duration.time.second < 10 ? "0" + duration.time.second.toString() : duration.time.second) : "0:00";
 	}
 
-	public TogglePlay(): void {
-		this.service.TogglePlay();
-	}
-
-	public ToggleShuffle(): void {
-		this.service.ToggleShuffle();
-	}
-
-	public CycleRepeat(): void {
-		this.service.CycleRepeat();
-	}
-
 	// ----- Properties ----- //
 
-	public get CurrentTrack(): ITrack {
-		return this.service.CurrentTrack;
-	}
-
-	public get CurrentDuration(): TimeSpan {
-		return this.service.CurrentDuration;
+	public get Service(): MusicService {
+		return this.service;
 	}
 
 	public get CurrentDifference(): TimeSpan {
 		return this.service.CurrentDuration.addUnit(-this.service.CurrentTrack.duration.ticks, TimeUnit.Ticks);
-	}
-
-	public get Playing(): boolean {
-		return this.service.Playing;
-	}
-
-	public get Shuffle(): boolean {
-		return this.service.Shuffle;
-	}
-
-	public get Repeat(): Repeat {
-		return this.service.Repeat;
 	}
 }
