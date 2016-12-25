@@ -3,7 +3,7 @@
 $blur: 100px;
 $artwork-size: 200px;
 $info-padding: 15px;
-$runner-width: 5px;
+$runner-width: 6px;
 
 musick {
 	> .loading {
@@ -129,9 +129,9 @@ musick {
 					right           : $info-padding;
 					height          : 5px;
 					background-color: #E2B037;
-					border-left     : $runner-width / 2 solid #E2B037;
-					border-right    : $runner-width / 2 solid #E2B037;
 					box-shadow      : 2px 2px 15px #111111;
+					border-right    : (0.5 * $runner-width) solid #E2B037;
+					border-left     : (0.5 * $runner-width) solid darken(#E2B037, 40%);
 
 					&::after,
 					&::before {
@@ -144,21 +144,30 @@ musick {
 
 					&::before {
 						content: attr(left-time);
-						left   : -($runner-width / 2);
+						left   : -0.5 * $runner-width;
 					}
 
 					&::after {
 						content: attr(right-time);
-						right  : -($runner-width / 2);
+						right  : -0.5 * $runner-width;
 					}
 
 					> .runner {
 						position        : absolute;
 						bottom          : 0;
-						width           : $runner-width;
-						height          : 15px;
-						margin-left     : -($runner-width / 2);
-						background-color: darken(#E2B037, 50%);
+						width           : 0;
+						height          : 5px;
+						background-color: darken(#E2B037, 40%);
+
+						&::after {
+							content         : " ";
+							position        : absolute;
+							bottom          : 0;
+							right           : -0.5 * $runner-width;
+							width           : $runner-width;
+							height          : 15px;
+							background-color: darken(#E2B037, 50%);
+						}
 					}
 				}
 			}

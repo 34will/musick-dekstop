@@ -1,6 +1,9 @@
 import { Component } from "@angular/core";
+import { TimeUnit } from "typescript-dotnet-system/System/Time/TimeUnit";
+import { TimeSpan } from "typescript-dotnet-system/System/Time/TimeSpan";
 
 import { ITrack } from "./types/itrack";
+
 
 @Component({
 	selector: "musick",
@@ -13,8 +16,17 @@ export class AppComponent {
 		album: "Life's Not Out To Get You",
 		albumArtURI: "images/neck-deep.jpg",
 		year: 2016,
-		duration: 4.2
+		duration: new TimeSpan(4.25, TimeUnit.Minutes)
 	};
+	private currentDuration: TimeSpan = new TimeSpan(0);
+
+	ngOnInit() {
+		setInterval(() => this.currentDuration = this.currentDuration.addUnit(100, TimeUnit.Milliseconds), 100);
+	}
+
+	public TimeSpanToString(duration: TimeSpan): string {
+		return duration ? (duration.direction * duration.time.minute) + ":" + (duration.time.second < 10 ? "0" + duration.time.second.toString() : duration.time.second) : "0:00";
+	}
 
 	// ----- Properties ----- //
 
@@ -22,7 +34,11 @@ export class AppComponent {
 		return this.currentTrack;
 	}
 
-	public get Duration(): string {
-		return this.currentTrack ? this.currentTrack.duration.toFixed(2).replace(".", ":") : "0:00";
+	public get CurrentDuration(): TimeSpan {
+		return this.currentDuration;
+	}
+
+	public get CurrentDifference(): TimeSpan {
+		return this.currentDuration.addUnit(-this.currentTrack.duration.ticks, TimeUnit.Ticks);
 	}
 }
