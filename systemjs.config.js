@@ -1,7 +1,7 @@
 (function (global) {
 	System.config({
 		paths: {
-			"npm:": "node_modules/"
+			"npm:": "node_modules/",
 		},
 		map: {
 			app: "build",
@@ -13,10 +13,10 @@
 			"@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js",
 			"@angular/http": "npm:@angular/http/bundles/http.umd.js",
 			"@angular/router": "npm:@angular/router/bundles/router.umd.js",
-			"@angular/forms": "npm:@angular/forms/bundles/forms.umd.js",
 
 			"rxjs": "npm:rxjs",
-			"angular-in-memory-web-api": "npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js"
+			"angular-in-memory-web-api": "npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js",
+			"typescript-dotnet-system": "npm:typescript-dotnet-system"
 		},
 		packages: {
 			app: {
@@ -24,6 +24,9 @@
 				defaultExtension: "js"
 			},
 			rxjs: {
+				defaultExtension: "js"
+			},
+			"typescript-dotnet-system": {
 				defaultExtension: "js"
 			}
 		}
