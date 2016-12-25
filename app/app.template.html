@@ -25,11 +25,17 @@
 			<div class="controls">
 				<button><i class="fa fa-step-backward"></i></button>
 				<button><i class="fa fa-backward"></i></button>
-				<button class="play"><i class="fa fa-play"></i></button>
+				<button class="play"><i class="fa" [class.fa-play]="!Playing" [class.fa-pause]="Playing" (click)="TogglePlay()"></i></button>
 				<button><i class="fa fa-forward"></i></button>
 				<button><i class="fa fa-step-forward"></i></button>
-				<button class="random"><i class="fa fa-random"></i></button>
-				<button class="repeat"><i class="fa fa-repeat"></i></button>
+				<button class="random" [class.disabled]="Shuffle" (click)="ToggleShuffle()"><i class="fa fa-random"></i></button>
+				<button class="repeat" [class.non-single]="Repeat != 1" [class.disabled]="Repeat == 0" (click)="CycleRepeat()">
+					<span *ngIf="Repeat == 1" class="fa-stack">
+						<i class="fa fa-repeat fa-stack-1x"></i>
+						<i class="fa fa-minus-circle fa-rotate-270 fa-stack-1x"></i>
+					</span>
+					<i *ngIf="Repeat != 1" class="fa fa-repeat"></i>
+				</button>
 			</div>
 			<div class="track-duration" [attr.left-time]="TimeSpanToString(CurrentDuration)" [attr.right-time]="TimeSpanToString(CurrentDifference)">
 				<div class="runner" [style.padding-left.%]="(CurrentDuration.milliseconds / CurrentTrack.duration.milliseconds) * 100.0"></div>

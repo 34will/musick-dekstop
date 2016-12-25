@@ -93,10 +93,10 @@ musick {
 							}
 						}
 
-						&.pause,
 						&.play {
 							margin   : 0 10px;
 							font-size: 200%;
+							min-width: 28px;
 						}
 
 						&.random,
@@ -108,13 +108,34 @@ musick {
 
 						&.repeat {
 							line-height: 57.5px;
+
+							&.non-single {
+								line-height: 62.5px;
+								text-align : center;
+
+								> i {
+									width: 2em;
+								}
+							}
 						}
 
 						&.random {
-							line-height: 58px;
+							line-height: 64px;
 						}
 
-						> i {
+						&.disabled {
+							opacity: 0.5;
+						}
+
+						> .fa-stack {
+							> .fa-minus-circle {
+								top      : 7.5px;
+								left     : -7.5px;
+								font-size: 50%;
+							}
+						}
+
+						i {
 							color      : #E2B037;
 							text-shadow: 2px 2px 10px #111111;
 							cursor     : pointer;
