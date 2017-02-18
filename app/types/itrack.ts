@@ -7,4 +7,5 @@ export class ITrack {
 	albumArtURI: string;
 	year: number;
 	duration: TimeSpan;
+	colour: string;
 }

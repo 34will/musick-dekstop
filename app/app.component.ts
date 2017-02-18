@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { TimeUnit } from "typescript-dotnet-system/System/Time/TimeUnit";
 import { TimeSpan } from "typescript-dotnet-system/System/Time/TimeSpan";
 
+import { Colour } from "./utility/colour"
 import { Repeat } from "./services/music";
 import { MusicService } from "./services/music";
 import { ITrack } from "./types/itrack";
@@ -20,6 +21,10 @@ export class AppComponent {
 
 	public TimeSpanToString(duration: TimeSpan): string {
 		return duration ? (duration.direction * duration.time.minute) + ":" + (duration.time.second < 10 ? "0" + duration.time.second.toString() : duration.time.second) : "0:00";
+	}
+
+	public DarkenColour(colour: string, amount: number = null): string {
+		return amount ? Colour.DarkenHex(colour, amount, true) : colour;
 	}
 
 	// ----- Properties ----- //

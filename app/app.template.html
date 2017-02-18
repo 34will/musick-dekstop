@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<div *ngIf="Service.CurrentTrack">
-	<img class="album-art" [src]="Service.CurrentTrack.albumArtURI" />
+<div>
+	<img *ngIf="Service.CurrentTrack" class="album-art" [src]="Service.CurrentTrack.albumArtURI" />
 	<div>
-		<div class="album-art-blur" [style.background-image]="'url(' + Service.CurrentTrack.albumArtURI + ')'">
-		</div>
-		<div class="track-info">
-			<span class="track">
-				<template [ngIf]="Service.CurrentTrack.name">
-					{{Service.CurrentTrack.name}}
-				</template>
-				<template [ngIf]="!Service.CurrentTrack.name">
-					Unknown Name
-				</template>
+		<div *ngIf="Service.CurrentTrack" class="album-art-blur" [style.background-image]="'url(' + Service.CurrentTrack.albumArtURI + ')'"></div>
+		<div class="track-info" [style.color]="Service.CurrentTrack.colour">
+			<template [ngIf]="Service.CurrentTrack">
+				<span class="track">
+					<template [ngIf]="Service.CurrentTrack.name">
+						{{Service.CurrentTrack.name}}
+					</template>
+			<template [ngIf]="!Service.CurrentTrack.name">
+						Unknown Name
+					</template>
 			</span>
 			<span class="artist">
-				<template [ngIf]="Service.CurrentTrack.artist">
-					{{Service.CurrentTrack.artist}}
-				</template>
-				<template [ngIf]="!Service.CurrentTrack.artist">
-					Unknown Artist
-				</template>
-			</span>
+					<template [ngIf]="Service.CurrentTrack.artist">
+						{{Service.CurrentTrack.artist}}
+					</template>
+					<template [ngIf]="!Service.CurrentTrack.artist">
+						Unknown Artist
+					</template>
+				</span>
 			<span *ngIf="Service.CurrentTrack.album" class="album">{{Service.CurrentTrack.album}} <span *ngIf="Service.CurrentTrack.year" class="year">({{Service.CurrentTrack.year}})</span></span>
+			</template>
 			<div class="controls">
 				<button><i class="fa fa-step-backward"></i></button>
 				<button><i class="fa fa-backward"></i></button>
@@ -37,9 +38,34 @@
 					<i *ngIf="Service.Repeat != 1" class="fa fa-repeat"></i>
 				</button>
 			</div>
-			<div class="track-duration" [attr.left-time]="TimeSpanToString(Service.CurrentDuration)" [attr.right-time]="TimeSpanToString(CurrentDifference)">
-				<div class="runner" [style.padding-left.%]="(Service.CurrentDuration.milliseconds / Service.CurrentTrack.duration.milliseconds) * 100.0"></div>
+			<div class="track-duration" [attr.left-time]="TimeSpanToString(Service.CurrentDuration)" [attr.right-time]="TimeSpanToString(CurrentDifference)" [style.background-color]="Service.CurrentTrack.colour" [style.border-left-color]="DarkenColour(Service.CurrentTrack.colour, 0.4)"
+							[style.border-right-color]="Service.CurrentTrack.colour">
+				<div class="runner" [style.padding-left.%]="(Service.CurrentDuration.milliseconds / Service.CurrentTrack.duration.milliseconds) * 100.0" [style.background-color]="DarkenColour(Service.CurrentTrack.colour, 0.4)"></div>
 			</div>
+		</div>
+		<div class="upcoming-tracks" [style.color]="Service.CurrentTrack.colour" [style.border-bottom-color]="Service.CurrentTrack.colour">
+			<ul>
+				<li *ngFor="let track of Service.Queue">
+					<img [src]="track.albumArtURI" />
+					<span class="track">
+						<template [ngIf]="track.name">
+							{{track.name}}
+						</template>
+						<template [ngIf]="!track.name">
+							Unknown Name
+						</template>
+					</span>
+					<span class="artist">
+						<template [ngIf]="track.artist">
+							{{track.artist}}
+						</template>
+						<template [ngIf]="!track.artist">
+							Unknown Artist
+						</template>
+					</span>
+					<span *ngIf="track.album" class="album">{{track.album}} <span *ngIf="track.year" class="year">({{track.year}})</span></span>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>

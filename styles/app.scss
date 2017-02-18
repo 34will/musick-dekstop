@@ -44,13 +44,19 @@ musick {
 				filter: blur($blur) saturate(115%);
 			}
 
-			> .track-info {
+			 > .track-info,
+			> .upcoming-tracks {
 				box-sizing: border-box;
-				position  : relative;
+				position  : absolute;
+				display   : inline-block;
+				top       : 0;
 				width     : 50%;
 				height    : 100%;
-				padding   : $info-padding;
-				color     : #E2B037;
+			}
+
+			> .track-info {
+				left   : 0;
+				padding: $info-padding;
 
 				> span {
 					display    : block;
@@ -75,7 +81,7 @@ musick {
 					> button {
 						padding         : initial;
 						font-size       : 150%;
-						color           : initial;
+						color           : inherit;
 						vertical-align  : middle;
 						align-items     : initial;
 						text-align      : initial;
@@ -136,7 +142,6 @@ musick {
 						}
 
 						i {
-							color      : #E2B037;
 							text-shadow: 2px 2px 10px #111111;
 							cursor     : pointer;
 						}
@@ -144,15 +149,16 @@ musick {
 				}
 
 				> .track-duration {
-					position        : absolute;
-					bottom          : 2 * $info-padding;
-					left            : $info-padding;
-					right           : $info-padding;
-					height          : 5px;
-					background-color: #E2B037;
-					box-shadow      : 2px 2px 15px #111111;
-					border-right    : (0.5 * $runner-width) solid #E2B037;
-					border-left     : (0.5 * $runner-width) solid darken(#E2B037, 40%);
+					position    : absolute;
+					bottom      : 2 * $info-padding;
+					left        : $info-padding;
+					right       : $info-padding;
+					height      : 5px;
+					box-shadow  : 2px 2px 15px #111111;
+					border-right: (0.5 * $runner-width) solid #000000;
+					//border-right-color: #E2B037;
+					border-left : (0.5 * $runner-width) solid #000000;
+					//border-left-color: darken(#E2B037, 40%);
 
 					&::after,
 					&::before {
@@ -174,11 +180,11 @@ musick {
 					}
 
 					> .runner {
-						position        : absolute;
-						bottom          : 0;
-						width           : 0;
-						height          : 5px;
-						background-color: darken(#E2B037, 40%);
+						position: absolute;
+						bottom  : 0;
+						width   : 0;
+						height  : 5px;
+						//background-color: darken(#E2B037, 40%);
 
 						&::after {
 							content         : " ";
@@ -187,7 +193,43 @@ musick {
 							right           : -0.5 * $runner-width;
 							width           : $runner-width;
 							height          : 15px;
-							background-color: darken(#E2B037, 50%);
+							background-color: #000000;
+						}
+					}
+				}
+			}
+
+			> .upcoming-tracks {
+				right      : 0;
+				font-family: "Helvetica";
+				overflow-y : scroll;
+
+				> ul {
+					margin         : 0;
+					padding        : 0;
+					list-style-type: none;
+					text-shadow    : 2px 2px 10px #111111;
+
+					> li {
+						height       : 32px;
+						line-height  : 32px;
+						border-bottom: 1px solid #000000;
+						//border-bottom-color: #E2B037;
+
+						> img {
+							width         : 32px;
+							height        : 32px;
+							vertical-align: middle;
+						}
+
+						> span {
+							font-size     : 90%;
+							vertical-align: middle;
+
+							&.track {
+								font-family: "Helvetica Bold";
+								font-size  : 100%;
+							}
 						}
 					}
 				}
