@@ -44,7 +44,7 @@ musick {
 				filter: blur($blur) saturate(115%);
 			}
 
-			 > .track-info,
+			> .track-info,
 			> .upcoming-tracks {
 				box-sizing: border-box;
 				position  : absolute;
@@ -156,9 +156,7 @@ musick {
 					height      : 5px;
 					box-shadow  : 2px 2px 15px #111111;
 					border-right: (0.5 * $runner-width) solid #000000;
-					//border-right-color: #E2B037;
 					border-left : (0.5 * $runner-width) solid #000000;
-					//border-left-color: darken(#E2B037, 40%);
 
 					&::after,
 					&::before {
@@ -180,11 +178,10 @@ musick {
 					}
 
 					> .runner {
-						position: absolute;
-						bottom  : 0;
-						width   : 0;
-						height  : 5px;
-						//background-color: darken(#E2B037, 40%);
+						position  : absolute;
+						bottom    : 0;
+						width     : 0;
+						height    : 5px;
 
 						&::after {
 							content         : " ";
@@ -214,7 +211,6 @@ musick {
 						height       : 32px;
 						line-height  : 32px;
 						border-bottom: 1px solid #000000;
-						//border-bottom-color: #E2B037;
 
 						> img {
 							width         : 32px;
