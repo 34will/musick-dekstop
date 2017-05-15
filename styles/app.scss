@@ -65,13 +65,13 @@ musick {
 					&.track {
 						font-family: "Open Sans", sans-serif;
 						font-size  : 200%;
-						font-weight: bold;
 					}
 
 					&.album,
 					&.artist {
 						font-family: "Open Sans", sans-serif;
 						font-size  : 125%;
+						font-weight: lighter;
 					}
 				}
 
@@ -165,6 +165,7 @@ musick {
 						top        : $info-padding / 2;
 						font-family: "Open Sans", sans-serif;
 						font-size  : 75%;
+						font-weight: lighter;
 						text-shadow: 2px 2px 10px #111111;
 					}
 
@@ -200,6 +201,7 @@ musick {
 			> .upcoming-tracks {
 				right      : 0;
 				font-family: "Open Sans", sans-serif;
+				font-weight: lighter;
 				overflow-y : scroll;
 
 				> ul {
@@ -226,7 +228,6 @@ musick {
 							&.track {
 								font-family: "Open Sans", sans-serif;
 								font-size  : 100%;
-								font-weight: bold;
 							}
 						}
 					}

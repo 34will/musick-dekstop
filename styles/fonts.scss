@@ -29,3 +29,33 @@ $font-dir: "../fonts";
 	font-weight: bold;
 	font-style: normal;
 }
+@font-face {
+	font-family: "Open Sans";
+	src: url($font-dir + "/OpenSans-BoldItalic.eot");
+	src: url($font-dir + "/OpenSans-BoldItalic.eot?#iefix") format("embedded-opentype"),
+		 url($font-dir + "/OpenSans-BoldItalic.woff") format("woff"),
+		 url($font-dir + "/OpenSans-BoldItalic.ttf") format("truetype"),
+		 url($font-dir + "/OpenSans-BoldItalic.svg#open_sansregular") format("svg");
+	font-weight: bold;
+	font-style: italic;
+}
+@font-face {
+	font-family: "Open Sans";
+	src: url($font-dir + "/OpenSans-Light.eot");
+	src: url($font-dir + "/OpenSans-Light.eot?#iefix") format("embedded-opentype"),
+		 url($font-dir + "/OpenSans-Light.woff") format("woff"),
+		 url($font-dir + "/OpenSans-Light.ttf") format("truetype"),
+		 url($font-dir + "/OpenSans-Light.svg#open_sansregular") format("svg");
+	font-weight: lighter;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Open Sans";
+	src: url($font-dir + "/OpenSans-LightItalic.eot");
+	src: url($font-dir + "/OpenSans-LightItalic.eot?#iefix") format("embedded-opentype"),
+		 url($font-dir + "/OpenSans-LightItalic.woff") format("woff"),
+		 url($font-dir + "/OpenSans-LightItalic.ttf") format("truetype"),
+		 url($font-dir + "/OpenSans-LightItalic.svg#open_sansregular") format("svg");
+	font-weight: lighter;
+	font-style: italic;
+}
