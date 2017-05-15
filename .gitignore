@@ -41,3 +41,5 @@ styles/**/*.css
 aot
 dist
 build
+
+fonts/fontawesome*.*

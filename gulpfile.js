@@ -32,7 +32,7 @@ gulp.task("angular.compile", function () {
 		.pipe(gulp.dest("./" + pathBuild + "/"));
 });
 
-gulp.task("angular.watch", function () {
+gulp.task("angular.watch", ["angular.compile"], function () {
 	return watch(["./" + pathSource + "/**/*.html", "./" + pathSource + "/**/*.ts"], { read: false }, function () { gulp.start("angular.compile"); });
 });
 
@@ -56,6 +56,11 @@ gulp.task("angular.aot-compile", function () {
 	return sequence("angular.ngc", "angular.rollup");
 });
 
+gulp.task("font-awesome.move", function () {
+	return gulp.src("./node_modules/font-awesome/fonts/*.*")
+		.pipe(gulp.dest("./fonts"));
+});
+
 gulp.task("scss.compile", function () {
 	return gulp.src("./" + pathStyles + "/main.scss")
 		.pipe(plumber({ errorHandler: handleError }))
@@ -63,7 +68,7 @@ gulp.task("scss.compile", function () {
 		.pipe(gulp.dest("./" + pathStyles + "/"));
 });
 
-gulp.task("scss.watch", function () {
+gulp.task("scss.watch", ["scss.compile", "font-awesome.move"], function () {
 	return watch("./" + pathStyles + "/**/*.scss", { read: false }, function () { gulp.start("scss.compile"); });
 });
 
